@@ -1,4 +1,4 @@
-package tests;
+package tests.registerClient.valid;
 
 import base.BaseRequestSpec;
 import base.JsonDeserializer;
@@ -13,14 +13,13 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-public class CreateUserTest {
+public class RegisterClientTest {
 
     @Test
-            public void createUser() {
+            public void registerClient() {
 
-        User user = JsonDeserializer.fromFile(TestDataPaths.USER_JSON, User.class);
-        user.setClientEmail("automation+" + System.currentTimeMillis() + "@example.com");
-
+        User user = JsonDeserializer.fromFile(TestDataPaths.REGISTER_CLIENT_JSON, User.class);
+        user.setClientEmail(System.currentTimeMillis() + user.getClientEmail());
 
         Response response = given()
                 .spec(BaseRequestSpec.withoutAuth())
@@ -31,5 +30,4 @@ public class CreateUserTest {
 
         TokenManager.setToken(response.jsonPath().getString("accessToken"));
     }
-
 }
