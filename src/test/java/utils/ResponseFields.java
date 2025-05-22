@@ -1,4 +1,4 @@
-package base;
+package utils;
 
 public class ResponseFields {
 

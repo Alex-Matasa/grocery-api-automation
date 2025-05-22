@@ -1,43 +1,41 @@
 package tests.registerClient.invalid;
 
-import base.BaseRequestSpec;
 import base.JsonDeserializer;
-import base.ResponseFields;
-import base.TestDataPaths;
-import endpoints.EndpointPaths;
+import suites.TestSuite;
+import utils.TestDataPaths;
 import io.restassured.response.Response;
 import models.request.User;
 import org.testng.annotations.Test;
+import services.ClientService;
+import utils.AssertionUtils;
 import utils.ExpectedMessages;
 import utils.TokenManager;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
 
 public class RegisterDuplicateClientsTest {
 
-    @Test
-            public void registerClient() {
+    @Test(groups = {
+            TestSuite.REGRESSION,
+            TestSuite.REGISTER_CLIENT,
+            TestSuite.INVALID_REGISTER_CLIENT
+    })
+
+    public void registerClient() {
 
         User user = JsonDeserializer.fromFile(TestDataPaths.REGISTER_CLIENT_JSON, User.class);
         user.setClientEmail(System.currentTimeMillis() + user.getClientEmail());
 
-        Response firstResponse = given()
-                .spec(BaseRequestSpec.withoutAuth())
-                .body(user)
-                .post(EndpointPaths.REGISTER_CLIENT);
+        Response firstResponse = ClientService.registerClient(user);
 
-        assertThat(firstResponse.getStatusCode(), equalTo(201));
+        AssertionUtils.assertStatusCode(firstResponse, 201);
 
         TokenManager.setToken(firstResponse.jsonPath().getString("accessToken"));
 
-        Response secondResponse = given()
-                .spec(BaseRequestSpec.withoutAuth())
-                .body(user)
-                .post(EndpointPaths.REGISTER_CLIENT);
+        Response secondResponse = ClientService.registerClient(user);
 
-        assertThat(secondResponse.getStatusCode(), equalTo(409));
-        assertThat(secondResponse.jsonPath().getString(ResponseFields.ERROR), equalTo(ExpectedMessages.REGISTER_DUPLICATE_CLIENTS_MESSAGE));
+        AssertionUtils.assertStatusCode(secondResponse, 409);
+        AssertionUtils.assertErrorMessage(secondResponse, ExpectedMessages.REGISTER_DUPLICATE_CLIENTS_MESSAGE);
     }
 }
