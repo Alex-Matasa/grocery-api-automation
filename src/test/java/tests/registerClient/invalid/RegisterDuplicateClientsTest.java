@@ -1,10 +1,11 @@
 package tests.registerClient.invalid;
 
 import base.JsonDeserializer;
+import data.DataModel;
 import suites.TestSuite;
 import utils.TestDataPaths;
 import io.restassured.response.Response;
-import models.request.User;
+import data.request.User;
 import org.testng.annotations.Test;
 import services.ClientService;
 import utils.AssertionUtils;
@@ -24,7 +25,7 @@ public class RegisterDuplicateClientsTest {
 
     public void registerClient() {
 
-        User user = JsonDeserializer.fromFile(TestDataPaths.REGISTER_CLIENT_JSON, User.class);
+        User user = JsonDeserializer.fromFile(TestDataPaths.REGISTER_CLIENT_JSON, DataModel.class).getUsers().get(0);
         user.setClientEmail(System.currentTimeMillis() + user.getClientEmail());
 
         Response firstResponse = ClientService.registerClient(user);

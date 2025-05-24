@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "clientName": "Test User",
+      "clientEmail": "plainaddress"
+    },
+    {
+      "clientName": "Test User",
+      "clientEmail": "missingatsign.com"
+    },
+    {
+      "clientName": "Test User",
+      "clientEmail": "@missinglocal.com"
+    },
+    {
+      "clientName": "Test User",
+      "clientEmail": "missingdomain@"
+    },
+    {
+      "clientName": "Test User",
+      "clientEmail": "missingdot@domain"
+    },
+    {
+      "clientName": "Test User",
+      "clientEmail": "user@.com"
+    },
+    {
+      "clientName": "Test User",
+      "clientEmail": "user@domain..com"
+    },
+    {
+      "clientName": "Test User",
+      "clientEmail": "user@-domain.com"
+    },
+    {
+      "clientName": "Test User",
+      "clientEmail": "user@domain.com (Joe Smith)"
+    },
+    {
+      "clientName": "Test User",
+      "clientEmail": "user@domain@domain.com"
+    }
+  ]
+}

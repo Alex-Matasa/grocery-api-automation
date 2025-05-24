@@ -1,10 +1,11 @@
 package tests.registerClient.valid;
 
 import base.JsonDeserializer;
+import data.DataModel;
 import suites.TestSuite;
 import utils.ResponseFields;
 import utils.TestDataPaths;
-import models.request.User;
+import data.request.User;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import services.ClientService;
@@ -22,7 +23,7 @@ public class RegisterClientTest {
 
     public void registerClient() {
 
-        User user = JsonDeserializer.fromFile(TestDataPaths.REGISTER_CLIENT_JSON, User.class);
+        User user = JsonDeserializer.fromFile(TestDataPaths.REGISTER_CLIENT_JSON, DataModel.class).getUsers().get(0);
         user.setClientEmail(System.currentTimeMillis() + user.getClientEmail());
 
         Response response = ClientService.registerClient(user);

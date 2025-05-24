@@ -4,7 +4,7 @@ import base.BaseRequestSpec;
 import endpoints.EndpointPaths;
 import io.restassured.response.Response;
 import logger.LoggerUtility;
-import models.request.User;
+import data.request.User;
 
 import static io.restassured.RestAssured.given;
 

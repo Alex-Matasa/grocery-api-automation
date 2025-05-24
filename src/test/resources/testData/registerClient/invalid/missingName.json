@@ -1,4 +1,8 @@
 {
-  "clientName": "",
-  "clientEmail": "user1@email.com"
+  "users": [
+    {
+      "clientName": "",
+      "clientEmail": "user1@email.com"
+    }
+  ]
 }
