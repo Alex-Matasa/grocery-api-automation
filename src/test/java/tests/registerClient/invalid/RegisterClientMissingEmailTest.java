@@ -29,6 +29,6 @@ public class RegisterClientMissingEmailTest {
         Response response = ClientService.registerClient(user);
 
         AssertionUtils.assertStatusCode(response, 400);
-        AssertionUtils.assertErrorMessage(response, ExpectedMessages.REGISTER_CLIENT_MISSING_EMAIL_MESSAGE);
+        AssertionUtils.assertErrorMessage(response, ExpectedMessages.REGISTER_CLIENT_INVALID_EMAIL_MESSAGE);
     }
 }

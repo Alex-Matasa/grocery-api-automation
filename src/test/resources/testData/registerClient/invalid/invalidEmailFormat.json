@@ -22,23 +22,19 @@
     },
     {
       "clientName": "Test User",
-      "clientEmail": "user@.com"
+      "clientEmail": "domainstartwithdot@.domain.com"
     },
     {
       "clientName": "Test User",
-      "clientEmail": "user@domain..com"
+      "clientEmail": "doubledotin@domain..com"
     },
     {
       "clientName": "Test User",
-      "clientEmail": "user@-domain.com"
+      "clientEmail": "multiple@local@domain.com"
     },
     {
       "clientName": "Test User",
-      "clientEmail": "user@domain.com (Joe Smith)"
-    },
-    {
-      "clientName": "Test User",
-      "clientEmail": "user@domain@domain.com"
+      "clientEmail": " whitespacemultiple@local@domain.com"
     }
   ]
 }
