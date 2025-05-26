@@ -11,6 +11,7 @@ import static io.restassured.RestAssured.given;
 public class ClientService {
 
     public static Response registerClient(User user) {
+        LoggerUtility.info("Registering client with name: " + user.getClientName());
         LoggerUtility.info("Registering client with email: " + user.getClientEmail());
 
         Response response = given()

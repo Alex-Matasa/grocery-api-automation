@@ -20,4 +20,17 @@ public class RegisterClientDataProvider {
                 .map(user -> new Object[]{user})
                 .toArray(Object[][]::new);
     }
+
+    @DataProvider(name = "validNameFormats")
+    public static Object[][] provideUsersWithValidNameFormats() {
+        DataModel model = JsonDeserializer.fromFile(
+                TestDataPaths.REGISTER_CLIENT_VALID_NAME_FORMATS_JSON,
+                DataModel.class
+        );
+
+        return model.getUsers()
+                .stream()
+                .map(user -> new Object[]{user})
+                .toArray(Object[][]::new);
+    }
 }

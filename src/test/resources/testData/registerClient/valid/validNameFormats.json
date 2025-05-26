@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "clientName": "John Doe",
+      "clientEmail": "@example.com"
+    },
+    {
+      "clientName": "Jane",
+      "clientEmail": "@example.com"
+    },
+    {
+      "clientName": "O'Connor",
+      "clientEmail": "@example.com"
+    },
+    {
+      "clientName": "李四",
+      "clientEmail": "@example.com"
+    },
+    {
+      "clientName": "Jean-Luc Picard",
+      "clientEmail": "@example.com"
+    },
+    {
+      "clientName": "Dr. Strange",
+      "clientEmail": "@example.com"
+    },
+    {
+      "clientName": "  Trimmed Name  ",
+      "clientEmail": "@example.com"
+    },
+    {
+      "clientName": "123 Client",
+      "clientEmail": "@example.com"
+    },
+    {
+      "clientName": "Client_Name-With.MixedChars",
+      "clientEmail": "@example.com"
+    }
+  ]
+}
